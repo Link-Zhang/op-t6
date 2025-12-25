@@ -28,8 +28,10 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_DL_DIR: false
   UPLOAD_FIRMWARE: true
+  UPLOAD_OP_DIR: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  LUCI_THEME_ARONG_TAG: v2.4.3
 
 jobs:
   build:
@@ -60,6 +62,7 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH --single-branch openwrt
         cd openwrt && git fetch origin --tags && git checkout $REPO_TAG
         ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd /mnt/workdir/openwrt/package && git clone -b master https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon && cd luci-theme-argon && git fetch origin --tags && git checkout $LUCI_THEME_ARONG_TAG
 
     - name: Load custom feeds
       run: |
@@ -74,11 +77,22 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
+    - name: Tar op directory
+      if: env.UPLOAD_OP_DIR == 'true'
+      run: cd /mnt/workdir && tar -zcvf op.tar.gz /mnt/workdir/openwrt
+
+    - name: Upload op directory
+      uses: actions/upload-artifact@main
+      if: env.UPLOAD_OP_DIR == 'true'
+      with:
+        name: OpenWrt_op${{ env.FILE_DATE }}
+        path: /mnt/workdir/op.tar.gz
+
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        #[ -e $IMG_FILE ] && mv -f $IMG_FILE openwrt/feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+        [ -e $IMG_FILE ] && mv -f $IMG_FILE openwrt/package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
