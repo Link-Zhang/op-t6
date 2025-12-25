@@ -1,0 +1,86 @@
+v0.1
+**************** >= should do these below **********************
+change from: CONFIG_DEFAULT_dnsmasq=y
+         to: CONFIG_DEFAULT_dnsmasq-full=y
+change from: CONFIG_DEFAULT_kmod-r8169=y
+         to: CONFIG_DEFAULT_kmod-r8125-rss=y
+**************** >= should do these above **********************
+========================================================================================
+Rockchip
+FriendlyARM NanoPC T6
+tar.gz
+	---- Include ShadowsocksR Libev Server
+(512) Kernel partition size (in MiB)
+(1024) Root filesystem partition size (in MiB)
+luci-app-banip
+luci-app-diskman
+Include kmod-md-raid456
+Include kmod-md-linear 
+luci-app-dockerman
+luci-app-firewall
+luci-app-passwall
+Include NaiveProxy
+Include Hysteria
+	---- Include Shadowsocks Rust Client
+	---- shadowsocks-rust-sslocal
+Include ShadowsocksR Libev Server
+Include ShadowsocksR Libev Client
+Include tuic-client
+Include V2ray_Geodata
+Include Xray-Plugin (Shadowsocks Plugin)
+luci-app-samba4
+luci-app-statistics
+luci-app-ttyd
+luci-app-turboacc
+luci-ssl-openssl
+Minify Lua sources
+Simplified Chinese (zh_Hans)
+Traditional Chinese (zh_Hant)
+openssh-sftp-server
+ss
+rsync
+Enable lz4, extremely fast compression
+Enable xxhash, extremely fast hash 
+ncat ****
+nmap ****
+ffmpeg ****
+unrar
+unzip
+fdisk
+nvme-cli
+hexedit
+vim
+dosfstools
+exfat-fsck
+exfat-mkfs
+ntfs-3g
+resize2fs
+bash
+zsh
+tmux
+adb
+losetup
+tree
+rtl8852be-firmware
+kmod-rtw89-8852be
+kmod-fs-exfat
+kmod-fs-ext4
+kmod-fs-ntfs3
+kmod-md-linear
+kmod-md-multipath
+kmod-nvme
+kmod-r8125-rss
+	---- kmod-mii
+	---- kmod-r8169
+	---- kmod-phy-realtek
+	---- r8169-firmware
+	---- dnsmasq
+blockd ****
+Elliptic curve cryptography (ECC)
+Elliptic curve cryptography (ECC), full support
+	---- U2F/FIDO support
+	---- Enable agent forwarding in dbclient [LEGACY/SECURITY]
+	---- Enable agent forwarding [LEGACY/SECURITY]
+kmod-nls-cp936
+kmod-nls-cp950
+kmod-nls-utf8
