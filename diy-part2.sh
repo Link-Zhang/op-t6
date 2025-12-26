@@ -31,3 +31,5 @@ sed -i 's|/services/|/system/|g' feeds/luci/applications/luci-app-ttyd/root/usr/
 # Change samba4 from services to nas
 sed -i 's|/services/|/nas/|g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 
+# Add luci-app-turboacc
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh --no-sfe
