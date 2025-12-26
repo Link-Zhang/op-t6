@@ -22,14 +22,14 @@ sed -i '24,26d' package/luci-theme-argon/luasrc/view/themes/argon/footer_login.h
 # Modify Luci Page
 sed -i '23,33d' package/luci-theme-argon/luasrc/view/themes/argon/footer.htm
 
-# Change ash to zsh
-sed -i 's|/bin/ash|/bin/zsh|g' package/base-files/files/etc/passwd
+# Change ash to bash
+sed -i 's|/bin/ash|/bin/bash|g' package/base-files/files/etc/passwd
 
 # Change ttyd from services to system
 sed -i 's|/services/|/system/|g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 
 # Change samba4 from services to nas
-sed -i 's|/services/|/nas/|g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
+#sed -i 's|/services/|/nas/|g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 
 # Add luci-app-turboacc
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh --no-sfe

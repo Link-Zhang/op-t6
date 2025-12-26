@@ -28,7 +28,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_DL_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_OP_DIR: true
+  UPLOAD_OP_DIR: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   LUCI_THEME_ARGON_TAG: v2.4.3
@@ -74,6 +74,9 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
+    - name: Replace golang
+      run: cd openwrt && rm -rf feeds/packages/lang/golang && git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
@@ -102,16 +105,19 @@ jobs:
       run: |
         cd openwrt
         make download -j$(nproc)
-        #tar -zcvf dl.tar.gz dl
         #find dl -size -1024c -exec ls -l {} \;
         #find dl -size -1024c -exec rm -f {} \;
+
+    - name: Tar dl directory
+      if: env.UPLOAD_DL_DIR == 'true'
+      run: cd /mnt/workdir/openwrt && tar -zcvf dl.tar.gz /mnt/workdir/openwrt/dl
 
     - name: Upload dl directory
       uses: actions/upload-artifact@main
       if: env.UPLOAD_DL_DIR == 'true'
       with:
         name: OpenWrt_dl${{ env.FILE_DATE }}
-        path: openwrt/dl.tar.gz
+        path: /mnt/workdir/openwrt/dl.tar.gz
 
     - name: Compile the firmware
       id: compile
@@ -127,7 +133,7 @@ jobs:
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
-    - name: Upload MAKE LOG
+    - name: Upload make log
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.makelog  == 'success'
       with:
