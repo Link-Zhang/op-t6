@@ -31,7 +31,7 @@ env:
   UPLOAD_OP_DIR: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  LUCI_THEME_ARONG_TAG: v2.4.3
+  LUCI_THEME_ARGON_TAG: v2.4.3
 
 jobs:
   build:
@@ -62,7 +62,7 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH --single-branch openwrt
         cd openwrt && git fetch origin --tags && git checkout $REPO_TAG
         ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        cd /mnt/workdir/openwrt/package && git clone -b master https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon && cd luci-theme-argon && git fetch origin --tags && git checkout $LUCI_THEME_ARONG_TAG
+        cd /mnt/workdir/openwrt/package && git clone -b master https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon && cd luci-theme-argon && git fetch origin --tags && git checkout $LUCI_THEME_ARGON_TAG
 
     - name: Load custom feeds
       run: |

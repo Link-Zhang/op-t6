@@ -1,0 +1,6 @@
+WARNING: Makefile 'package/luci-theme-argon/Makefile' has a dependency on 'curl', which does not exist
+WARNING: Makefile 'package/luci-theme-argon/Makefile' has a dependency on 'luci-lua-runtime', which does not exist
+WARNING: Makefile 'package/luci-theme-argon/Makefile' has a build dependency on 'luci-base/host', which does not exist
+WARNING: Makefile 'package/luci-theme-argon/Makefile' has a build dependency on 'csstidy/host', which does not exist
+WARNING: Makefile 'package/luci-theme-argon/Makefile' has a build dependency on 'luasrcdiet/host', which does not exist
+
