@@ -11,7 +11,7 @@
 #
 
 # Modify hostname
-sed -i 's/OpenWrt/T6/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/NanoPC-T6/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-light/Makefile
@@ -25,11 +25,8 @@ sed -i '23,33d' package/luci-theme-argon/luasrc/view/themes/argon/footer.htm
 # Change ash to bash
 sed -i 's|/bin/ash|/bin/bash|g' package/base-files/files/etc/passwd
 
-# Change ttyd from services to system
-sed -i 's|/services/|/system/|g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
-
-# Change samba4 from services to nas
-#sed -i 's|/services/|/nas/|g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
+# Set Default root password
+sed -i 's|root:::0:99999:7:::|root:$1$CVCXbKh9$r5w6F.rsYfy3Uszzi7TuD0:8195:0:99999:7:::|g' feeds/base/base-files/files/etc/shadow
 
 # Add luci-app-turboacc
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh --no-sfe
