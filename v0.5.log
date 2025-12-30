@@ -158,3 +158,75 @@ tcpdump
 v2ray-core
 v2ray-extra
 
+v0.5
+========================================================================================
+Enable zstd stream compression
+	---- Enable lz4, extremely fast compression
+	---- lz4
+	---- liblz4
+Build with zstd support
+zstd
+libunrar
+libzip-gnutls
+libzip-mbedtls
+libzip-nossl
+libzip-openssl
+use external FUSE library, selects package libfuse 
+ntfs-3g-utils
+libuhttpd-openssl
+libunbound
+libuwsc-openssl
+MBEDTLS_ECP_DP_CURVE448_ENABLED
+kmod-usb-net-ipheth
+kmod-usb-net-rndis
+lib-drm
+libidn2
+libinput
+moc
+sbc
+kmod-ata-ahci
+kmod-ata-ahci-dwc
+kmod-ata-dwc
+kmod-fs-vfat
+kmod-hwmon-drivetemp
+kmod-hwmon-pwmfan
+collectd-mod-thermal
+kmod-i2c-gpio
+kmod-i2c-smbus
+kmod-hid-generic
+kmod-input-gpio-keys
+kmod-input-uinput
+kmod-leds-gpio
+kmod-ledtrig-activity
+kmod-ledtrig-gpio
+kmod-ata-ahci-platform
+kmod-mmc
+kmod-sdhci
+kmod-serial-8250
+kmod-zram
+kmod-spi-dw-mmio
+kmod-mtdram
+kmod-mtdtests
+kmod-mtdev
+kmod-block2mtd
+kmod-sound-soc-core
+kmod-usb-audio
+kmod-usb-ehci
+kmod-usb-ohci
+kmod-usb2
+kmod-usb3
+kmod-usb-storage-uas
+kmod-usb-hid 
+kmod-usb-printer
+kmod-sound-hda-core
+kmod-sound-hda-codec-hdmi
+kmod-ledtrig-audio
+kmod-dma-buf
+kmod-backlight-pwm
+kmod-drm-buddy
+kmod-drm-display-helper
+kmod-drm-ttm
+kmod-video-core
+kmod-video-fwnode
+kmod-vhost-net
+libsoc
