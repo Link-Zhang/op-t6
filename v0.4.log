@@ -41,9 +41,9 @@ ss
 rsync
 Enable lz4, extremely fast compression
 Enable xxhash, extremely fast hash 
-ncat ****
-nmap ****
-ffmpeg ****
+ncat
+nmap
+ffmpeg
 unrar
 unzip
 fdisk
@@ -142,3 +142,19 @@ pv
 qrencode
 sipcalc
 usbutils
+
+v0.4
+========================================================================================
+collectd-mod-disk
+collectd-mod-sensors
+collectd-mod-tcpconns
+dos2unix
+unix2dos
+luci-proto-ncm
+fping
+iftop
+lynx
+tcpdump
+v2ray-core
+v2ray-extra
+
