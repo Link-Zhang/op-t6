@@ -166,11 +166,6 @@ Enable zstd stream compression
 	---- liblz4
 Build with zstd support
 zstd
-libunrar
-libzip-gnutls
-libzip-mbedtls
-libzip-nossl
-libzip-openssl
 use external FUSE library, selects package libfuse 
 ntfs-3g-utils
 libuhttpd-openssl
