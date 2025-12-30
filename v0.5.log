@@ -158,7 +158,7 @@ tcpdump
 v2ray-core
 v2ray-extra
 
-v0.5
+v0.5.1
 ========================================================================================
 Enable zstd stream compression
 	---- Enable lz4, extremely fast compression
@@ -225,3 +225,8 @@ kmod-video-core
 kmod-video-fwnode
 kmod-vhost-net
 libsoc
+
+v0.5.1
+========================================================================================
+mount-utils
+find-utils
